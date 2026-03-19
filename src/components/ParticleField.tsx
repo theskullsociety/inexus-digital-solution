@@ -78,7 +78,7 @@ export function ParticleField() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(175, 85%, 50%, ${pulseOpacity})`;
+        ctx.fillStyle = `hsla(165, 80%, 38%, ${pulseOpacity})`;
         ctx.fill();
       }
 
@@ -92,7 +92,7 @@ export function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(175, 85%, 50%, ${0.08 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `hsla(165, 80%, 38%, ${0.06 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

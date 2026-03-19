@@ -14,11 +14,11 @@ export function HeroSection() {
       <img
         src={heroBg}
         alt="Digivyral digital marketing agency background"
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
+        className="absolute inset-0 w-full h-full object-cover opacity-10"
         loading="eager"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/3 via-transparent to-accent/3" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
       <ParticleField />
 
       {/* Ambient orbs */}
