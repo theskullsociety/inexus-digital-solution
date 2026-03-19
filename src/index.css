@@ -61,8 +61,10 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(145deg, hsl(222 30% 6%) 0%, hsl(230 28% 9%) 40%, hsl(222 30% 6%) 100%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
