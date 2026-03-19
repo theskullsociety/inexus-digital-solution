@@ -91,9 +91,9 @@ function ParticleSphere() {
 }
 
 function OrbitRing({ radius, speed, color, opacity }: { radius: number; speed: number; color: string; opacity: number }) {
-  const ref = useRef<THREE.Line>(null);
+  const ref = useRef<THREE.Group>(null);
 
-  const geometry = useMemo(() => {
+  const lineObj = useMemo(() => {
     const points: THREE.Vector3[] = [];
     const segments = 128;
     for (let i = 0; i <= segments; i++) {
@@ -104,8 +104,10 @@ function OrbitRing({ radius, speed, color, opacity }: { radius: number; speed: n
         Math.sin(theta) * radius
       ));
     }
-    return new THREE.BufferGeometry().setFromPoints(points);
-  }, [radius]);
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const material = new THREE.LineBasicMaterial({ color, transparent: true, opacity });
+    return new THREE.Line(geometry, material);
+  }, [radius, color, opacity]);
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
@@ -115,9 +117,9 @@ function OrbitRing({ radius, speed, color, opacity }: { radius: number; speed: n
   });
 
   return (
-    <line ref={ref as any} geometry={geometry}>
-      <lineBasicMaterial color={color} transparent opacity={opacity} />
-    </line>
+    <group ref={ref}>
+      <primitive object={lineObj} />
+    </group>
   );
 }
 
