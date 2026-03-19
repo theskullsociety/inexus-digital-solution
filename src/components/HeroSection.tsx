@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ParticleField } from "@/components/ParticleField";
+import { HeroSphere } from "@/components/HeroSphere";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export function HeroSection() {
