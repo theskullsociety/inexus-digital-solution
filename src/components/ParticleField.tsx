@@ -92,7 +92,7 @@ export function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(165, 80%, 38%, ${0.06 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `hsla(165, 80%, 42%, ${0.07 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
