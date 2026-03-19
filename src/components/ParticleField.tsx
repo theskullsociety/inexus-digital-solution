@@ -78,7 +78,7 @@ export function ParticleField() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(165, 80%, 38%, ${pulseOpacity})`;
+        ctx.fillStyle = `hsla(165, 80%, 42%, ${pulseOpacity})`;
         ctx.fill();
       }
 
