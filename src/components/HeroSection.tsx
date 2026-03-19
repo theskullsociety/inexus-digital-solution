@@ -14,7 +14,7 @@ export function HeroSection() {
       <img
         src={heroBg}
         alt="Digivyral digital marketing agency background"
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
+        className="absolute inset-0 w-full h-full object-cover opacity-10"
         loading="eager"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
