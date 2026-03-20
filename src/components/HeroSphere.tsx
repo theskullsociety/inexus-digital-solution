@@ -57,10 +57,10 @@ function ParticleSphere() {
     mouseRef.current.x += (pointer.x * 0.3 - mouseRef.current.x) * 0.05;
     mouseRef.current.y += (pointer.y * 0.3 - mouseRef.current.y) * 0.05;
 
-    // Bounce based on scroll position — oscillate like a ball
-    const scrollFactor = scrollRef.current * 0.003;
-    const bounce = Math.sin(clock.elapsedTime * 2.5 + scrollFactor) * 0.6;
-    bounceRef.current += (bounce - bounceRef.current) * 0.08;
+    // Bounce + scroll-based downward movement
+    const scrollDown = scrollRef.current * -0.004;
+    const bounce = Math.sin(clock.elapsedTime * 2.5) * 0.6;
+    bounceRef.current += (bounce + scrollDown - bounceRef.current) * 0.08;
 
     meshRef.current.rotation.y = clock.elapsedTime * 0.15 + mouseRef.current.x;
     meshRef.current.rotation.x = Math.sin(clock.elapsedTime * 0.1) * 0.1 + mouseRef.current.y;
