@@ -125,16 +125,34 @@ function BrandText3D() {
   // Fallback: use simple 3D text with basic geometry since font loading can be tricky
   const textMesh = useMemo(() => {
     const canvas = document.createElement("canvas");
-    canvas.width = 512;
-    canvas.height = 128;
+    canvas.width = 1024;
+    canvas.height = 256;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = "transparent";
-    ctx.fillRect(0, 0, 512, 128);
-    ctx.font = "bold 64px 'Space Grotesk', sans-serif";
+    ctx.clearRect(0, 0, 1024, 256);
+
+    // Neon glow layers
+    ctx.shadowColor = "#00e89d";
+    ctx.shadowBlur = 40;
+    ctx.font = "bold 80px 'Space Grotesk', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
+
+    // Outer glow pass
+    ctx.fillStyle = "rgba(0, 232, 157, 0.3)";
+    ctx.fillText("DIGIVYRAL", 512, 128);
+
+    // Mid glow pass
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "#00e89d";
+    ctx.fillStyle = "rgba(0, 232, 157, 0.6)";
+    ctx.fillText("DIGIVYRAL", 512, 128);
+
+    // Core bright text
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = "#ffffff";
     ctx.fillStyle = "#ffffff";
-    ctx.fillText("DIGIVYRAL", 256, 64);
+    ctx.fillText("DIGIVYRAL", 512, 128);
+
     const texture = new THREE.CanvasTexture(canvas);
     texture.needsUpdate = true;
     return texture;
@@ -147,7 +165,7 @@ function BrandText3D() {
         <meshBasicMaterial
           map={textMesh}
           transparent
-          opacity={0.9}
+          opacity={1}
           side={THREE.DoubleSide}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
