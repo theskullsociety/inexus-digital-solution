@@ -115,7 +115,7 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-          className="flex-1 w-full max-w-[500px] lg:max-w-none aspect-square hidden md:block"
+          className="flex-1 w-full max-w-[280px] md:max-w-[500px] lg:max-w-none aspect-square"
         >
           <HeroSphere />
         </motion.div>
