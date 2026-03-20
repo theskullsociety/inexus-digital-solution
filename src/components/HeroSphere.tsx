@@ -207,9 +207,9 @@ function OrbitRing({ radius, speed, color, opacity }: { radius: number; speed: n
   useFrame(({ clock }) => {
     if (!ref.current) return;
 
-    const scrollFactor = scrollRef.current * 0.003;
-    const bounce = Math.sin(clock.elapsedTime * 2.5 + scrollFactor) * 0.6;
-    bounceRef.current += (bounce - bounceRef.current) * 0.08;
+    const scrollDown = scrollRef.current * -0.004;
+    const bounce = Math.sin(clock.elapsedTime * 2.5) * 0.6;
+    bounceRef.current += (bounce + scrollDown - bounceRef.current) * 0.08;
 
     ref.current.position.y = bounceRef.current;
     ref.current.rotation.y = clock.elapsedTime * speed;
