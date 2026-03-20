@@ -234,11 +234,13 @@ export function HeroSphere() {
         style={{ background: "transparent" }}
       >
         <ambientLight intensity={0.3} />
-        <ParticleSphere />
-        <BrandText3D />
-        <OrbitRing radius={2.2} speed={0.12} color="hsl(165, 80%, 42%)" opacity={0.15} />
-        <OrbitRing radius={2.5} speed={-0.08} color="hsl(270, 55%, 58%)" opacity={0.1} />
-        <OrbitRing radius={2.8} speed={0.05} color="hsl(30, 80%, 55%)" opacity={0.07} />
+        <group scale={0.5}>
+          <ParticleSphere />
+          <BrandText3D />
+          <OrbitRing radius={2.2} speed={0.12} color="hsl(165, 80%, 42%)" opacity={0.15} />
+          <OrbitRing radius={2.5} speed={-0.08} color="hsl(270, 55%, 58%)" opacity={0.1} />
+          <OrbitRing radius={2.8} speed={0.05} color="hsl(30, 80%, 55%)" opacity={0.07} />
+        </group>
       </Canvas>
     </div>
   );
