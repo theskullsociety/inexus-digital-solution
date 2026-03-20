@@ -1,23 +1,32 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { Text3D, Center } from "@react-three/drei";
 import * as THREE from "three";
 
 function ParticleSphere() {
   const meshRef = useRef<THREE.Points>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const scrollRef = useRef(0);
+  const bounceRef = useRef(0);
 
-  const { positions, colors, scales } = useMemo(() => {
+  useEffect(() => {
+    const onScroll = () => {
+      scrollRef.current = window.scrollY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const { positions, colors } = useMemo(() => {
     const count = 2800;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const scales = new Float32Array(count);
 
     const primaryColor = new THREE.Color("hsl(165, 80%, 42%)");
     const accentColor = new THREE.Color("hsl(270, 55%, 58%)");
     const warmColor = new THREE.Color("hsl(30, 80%, 55%)");
 
     for (let i = 0; i < count; i++) {
-      // Distribute on sphere surface with some variation
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
       const radius = 1.8 + (Math.random() - 0.5) * 0.15;
@@ -26,8 +35,7 @@ function ParticleSphere() {
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
 
-      // Color gradient based on position
-      const t = (positions[i * 3 + 1] + 2) / 4; // normalized y
+      const t = (positions[i * 3 + 1] + 2) / 4;
       const mixColor = new THREE.Color();
       if (t < 0.5) {
         mixColor.lerpColors(accentColor, primaryColor, t * 2);
@@ -38,27 +46,27 @@ function ParticleSphere() {
       colors[i * 3] = mixColor.r;
       colors[i * 3 + 1] = mixColor.g;
       colors[i * 3 + 2] = mixColor.b;
-
-      scales[i] = Math.random() * 0.8 + 0.2;
     }
 
-    return { positions, colors, scales };
+    return { positions, colors };
   }, []);
 
   useFrame(({ clock, pointer }) => {
     if (!meshRef.current) return;
 
-    // Smooth mouse tracking
     mouseRef.current.x += (pointer.x * 0.3 - mouseRef.current.x) * 0.05;
     mouseRef.current.y += (pointer.y * 0.3 - mouseRef.current.y) * 0.05;
 
-    // Auto rotation + mouse influence
+    // Bounce based on scroll position — oscillate like a ball
+    const scrollFactor = scrollRef.current * 0.003;
+    const bounce = Math.sin(clock.elapsedTime * 2.5 + scrollFactor) * 0.6;
+    bounceRef.current += (bounce - bounceRef.current) * 0.08;
+
     meshRef.current.rotation.y = clock.elapsedTime * 0.15 + mouseRef.current.x;
     meshRef.current.rotation.x = Math.sin(clock.elapsedTime * 0.1) * 0.1 + mouseRef.current.y;
     meshRef.current.rotation.z = Math.sin(clock.elapsedTime * 0.08) * 0.05;
 
-    // Gentle floating
-    meshRef.current.position.y = Math.sin(clock.elapsedTime * 0.5) * 0.15;
+    meshRef.current.position.y = bounceRef.current;
   });
 
   return (
@@ -90,8 +98,77 @@ function ParticleSphere() {
   );
 }
 
+function BrandText3D() {
+  const groupRef = useRef<THREE.Group>(null);
+  const scrollRef = useRef(0);
+  const bounceRef = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      scrollRef.current = window.scrollY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useFrame(({ clock }) => {
+    if (!groupRef.current) return;
+
+    const scrollFactor = scrollRef.current * 0.003;
+    const bounce = Math.sin(clock.elapsedTime * 2.5 + scrollFactor) * 0.6;
+    bounceRef.current += (bounce - bounceRef.current) * 0.08;
+
+    groupRef.current.position.y = bounceRef.current;
+    groupRef.current.rotation.y = clock.elapsedTime * 0.15;
+  });
+
+  // Fallback: use simple 3D text with basic geometry since font loading can be tricky
+  const textMesh = useMemo(() => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 512;
+    canvas.height = 128;
+    const ctx = canvas.getContext("2d")!;
+    ctx.fillStyle = "transparent";
+    ctx.fillRect(0, 0, 512, 128);
+    ctx.font = "bold 64px 'Space Grotesk', sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText("DIGIVYRAL", 256, 64);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  }, []);
+
+  return (
+    <group ref={groupRef}>
+      <mesh>
+        <planeGeometry args={[2.2, 0.55]} />
+        <meshBasicMaterial
+          map={textMesh}
+          transparent
+          opacity={0.9}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+    </group>
+  );
+}
+
 function OrbitRing({ radius, speed, color, opacity }: { radius: number; speed: number; color: string; opacity: number }) {
   const ref = useRef<THREE.Group>(null);
+  const scrollRef = useRef(0);
+  const bounceRef = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      scrollRef.current = window.scrollY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const lineObj = useMemo(() => {
     const points: THREE.Vector3[] = [];
@@ -111,6 +188,12 @@ function OrbitRing({ radius, speed, color, opacity }: { radius: number; speed: n
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
+
+    const scrollFactor = scrollRef.current * 0.003;
+    const bounce = Math.sin(clock.elapsedTime * 2.5 + scrollFactor) * 0.6;
+    bounceRef.current += (bounce - bounceRef.current) * 0.08;
+
+    ref.current.position.y = bounceRef.current;
     ref.current.rotation.y = clock.elapsedTime * speed;
     ref.current.rotation.x = 0.4 + Math.sin(clock.elapsedTime * 0.3) * 0.1;
     ref.current.rotation.z = Math.sin(clock.elapsedTime * 0.2) * 0.1;
@@ -134,6 +217,7 @@ export function HeroSphere() {
       >
         <ambientLight intensity={0.3} />
         <ParticleSphere />
+        <BrandText3D />
         <OrbitRing radius={2.2} speed={0.12} color="hsl(165, 80%, 42%)" opacity={0.15} />
         <OrbitRing radius={2.5} speed={-0.08} color="hsl(270, 55%, 58%)" opacity={0.1} />
         <OrbitRing radius={2.8} speed={0.05} color="hsl(30, 80%, 55%)" opacity={0.07} />
