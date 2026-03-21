@@ -1,9 +1,11 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ParticleField } from "@/components/ParticleField";
-import { HeroSphere } from "@/components/HeroSphere";
 import heroBg from "@/assets/hero-bg.jpg";
+
+const HeroSphere = lazy(() => import("@/components/HeroSphere").then(m => ({ default: m.HeroSphere })));
 
 export function HeroSection() {
   const scrollTo = (id: string) => {
@@ -110,14 +112,16 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* 3D Sphere */}
+        {/* 3D Sphere - lazy loaded */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
           className="flex-1 w-full max-w-[280px] md:max-w-[500px] lg:max-w-none aspect-square"
         >
-          <HeroSphere />
+          <Suspense fallback={<div className="w-full h-full" />}>
+            <HeroSphere />
+          </Suspense>
         </motion.div>
       </div>
 
