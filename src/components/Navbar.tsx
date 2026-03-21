@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
-import logoFull from "@/assets/logo-full.png";
+import logoFull from "@/assets/logo-full.webp";
 
 const scrollNavItems = ["Services", "Work", "Contact"];
 

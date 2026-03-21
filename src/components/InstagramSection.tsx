@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Instagram, Heart, MessageCircle, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoIcon from "@/assets/logo-icon.png";
-import insta1 from "@/assets/insta-1.jpg";
-import insta2 from "@/assets/insta-2.jpg";
+import logoIcon from "@/assets/logo-icon.webp";
+import insta1 from "@/assets/insta-1.webp";
+import insta2 from "@/assets/insta-2.webp";
 import insta3 from "@/assets/insta-3.jpg";
 import insta4 from "@/assets/insta-4.jpg";
 import insta5 from "@/assets/insta-5.jpg";
