@@ -18,7 +18,7 @@ function ParticleSphere() {
   }, []);
 
   const { positions, colors } = useMemo(() => {
-    const count = 1800;
+    const count = 1000;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
 
