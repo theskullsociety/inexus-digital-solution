@@ -2,8 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, CheckCircle2, Palette, Globe, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import portfolioDental from "@/assets/portfolio-dental.jpg";
-import portfolioTravel from "@/assets/portfolio-travel.jpg";
+import portfolioDental from "@/assets/portfolio-dental.webp";
+import portfolioTravel from "@/assets/portfolio-travel.webp";
 
 const filters = [
   { id: "all", label: "All", icon: null },
