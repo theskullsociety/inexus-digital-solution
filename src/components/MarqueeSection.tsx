@@ -28,10 +28,10 @@ export function MarqueeSection() {
         {items.map((item, i) => (
           <span
             key={i}
-            className="text-2xl md:text-4xl font-bold text-foreground/[0.06] hover:text-foreground/20 transition-colors duration-500 font-display flex items-center gap-12"
+            className="text-2xl md:text-4xl font-bold text-foreground/[0.06] hover:text-foreground/15 transition-colors duration-500 font-display flex items-center gap-12"
           >
             {item}
-            <span className="text-primary/30 text-lg">◆</span>
+            <span className="text-primary/20 text-lg">◆</span>
           </span>
         ))}
       </motion.div>

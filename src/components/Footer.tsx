@@ -3,7 +3,7 @@ import logoFull from "@/assets/logo-full.webp";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/30 py-12 bg-card/20">
+    <footer className="border-t border-border/50 py-12 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
@@ -18,30 +18,30 @@ export function Footer() {
                 href="https://www.instagram.com/digivyral"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors group cursor-pointer"
+                className="w-9 h-9 rounded-lg bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors group cursor-pointer"
                 aria-label="Follow Digivyral on Instagram"
               >
-                <Instagram className="h-4 w-4 text-primary" />
+                <Instagram className="h-4 w-4 text-foreground/60" />
               </a>
             </div>
           </div>
           <nav aria-label="Footer navigation">
             <h3 className="font-semibold text-foreground mb-4 text-sm font-display">Services</h3>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
-              <li className="hover:text-foreground/70 transition-colors">Digital Marketing</li>
-              <li className="hover:text-foreground/70 transition-colors">Web Development</li>
-              <li className="hover:text-foreground/70 transition-colors">SEO & SEM</li>
-              <li className="hover:text-foreground/70 transition-colors">Social Media Marketing</li>
-              <li className="hover:text-foreground/70 transition-colors">Brand Design</li>
-              <li className="hover:text-foreground/70 transition-colors">E-Commerce Solutions</li>
-              <li><a href="/careers" className="hover:text-primary transition-colors">Careers</a></li>
+              <li className="hover:text-foreground transition-colors">Digital Marketing</li>
+              <li className="hover:text-foreground transition-colors">Web Development</li>
+              <li className="hover:text-foreground transition-colors">SEO & SEM</li>
+              <li className="hover:text-foreground transition-colors">Social Media Marketing</li>
+              <li className="hover:text-foreground transition-colors">Brand Design</li>
+              <li className="hover:text-foreground transition-colors">E-Commerce Solutions</li>
+              <li><a href="/careers" className="hover:text-foreground transition-colors">Careers</a></li>
             </ul>
           </nav>
           <div>
             <h3 className="font-semibold text-foreground mb-4 text-sm font-display">Contact</h3>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
-              <li><a href="tel:+919306036161" className="hover:text-primary transition-colors">+91 93060 36161</a></li>
-              <li><a href="mailto:hello@digivyral.com" className="hover:text-primary transition-colors">hello@digivyral.com</a></li>
+              <li><a href="tel:+919306036161" className="hover:text-foreground transition-colors">+91 93060 36161</a></li>
+              <li><a href="mailto:hello@digivyral.com" className="hover:text-foreground transition-colors">hello@digivyral.com</a></li>
               <li>Worldwide — Remote First</li>
             </ul>
           </div>

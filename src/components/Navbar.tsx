@@ -36,7 +36,7 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "glass-strong shadow-lg"
+          ? "bg-background/90 backdrop-blur-xl shadow-sm border-b border-border/50"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -53,21 +53,21 @@ export function Navbar() {
               className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group"
             >
               {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300" />
             </button>
           ))}
           <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group">
             Blog
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300" />
           </Link>
           <Link to="/careers" className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group">
             Careers
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300" />
           </Link>
           <Button
             size="sm"
             onClick={() => scrollTo("contact")}
-            className="glow-sm rounded-full px-6"
+            className="rounded-full px-6 bg-foreground text-background hover:bg-foreground/90"
           >
             Get Started
           </Button>
@@ -84,25 +84,25 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-border/30"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/30"
           >
             <div className="flex flex-col gap-4 p-6">
               {scrollNavItems.map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollTo(item)}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors"
+                  className="text-left text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item}
                 </button>
               ))}
-              <Link to="/blog" onClick={() => setMobileOpen(false)} className="text-left text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/blog" onClick={() => setMobileOpen(false)} className="text-left text-muted-foreground hover:text-foreground transition-colors">
                 Blog
               </Link>
-              <Link to="/careers" onClick={() => setMobileOpen(false)} className="text-left text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/careers" onClick={() => setMobileOpen(false)} className="text-left text-muted-foreground hover:text-foreground transition-colors">
                 Careers
               </Link>
-              <Button size="sm" onClick={() => scrollTo("contact")} className="glow-sm w-fit rounded-full px-6">
+              <Button size="sm" onClick={() => scrollTo("contact")} className="w-fit rounded-full px-6 bg-foreground text-background hover:bg-foreground/90">
                 Get Started
               </Button>
             </div>
