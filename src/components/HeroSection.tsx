@@ -2,8 +2,6 @@ import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ParticleField } from "@/components/ParticleField";
-import heroBg from "@/assets/hero-bg.webp";
 
 const HeroSphere = lazy(() => import("@/components/HeroSphere").then(m => ({ default: m.HeroSphere })));
 
@@ -13,28 +11,8 @@ export function HeroSection() {
   };
 
   return (
-    <section aria-label="Hero - Digital Marketing Agency" className="relative min-h-screen flex items-center justify-center overflow-hidden noise-bg">
-      <img
-        src={heroBg}
-        alt="Digivyral digital marketing agency background"
-        className="absolute inset-0 w-full h-full object-cover opacity-15"
-        loading="eager"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/4 via-transparent to-accent/4" />
-      <ParticleField />
-
-      {/* Ambient orbs */}
-      <motion.div
-        animate={{ y: [-30, 30, -30], x: [-15, 15, -15] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-[10%] w-72 h-72 rounded-full bg-primary/5 blur-[100px]"
-      />
-      <motion.div
-        animate={{ y: [20, -30, 20], x: [10, -15, 10] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 right-[10%] w-80 h-80 rounded-full bg-accent/5 blur-[100px]"
-      />
+    <section aria-label="Hero - Digital Marketing Agency" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/30" />
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-4">
         {/* Text content */}
@@ -48,7 +26,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm mb-8 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm mb-8"
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               #1 Digital Marketing & Web Development Agency
@@ -60,7 +38,7 @@ export function HeroSection() {
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] mb-2 tracking-tight font-display"
+              className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] mb-2 tracking-tight font-display text-foreground"
             >
               We Make Brands
             </motion.h1>
@@ -70,9 +48,9 @@ export function HeroSection() {
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight font-display"
+              className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight font-display text-faded"
             >
-              <span className="text-gradient">Go Viral</span>
+              Go Viral.
             </motion.div>
           </div>
 
@@ -94,7 +72,7 @@ export function HeroSection() {
           >
             <Button
               size="lg"
-              className="glow text-base px-8 rounded-full group"
+              className="text-base px-8 rounded-full group bg-foreground text-background hover:bg-foreground/90"
               onClick={() => scrollTo("contact")}
             >
               Start Your Project
@@ -103,7 +81,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="text-base px-8 rounded-full border-border/60 hover:bg-secondary/50 group"
+              className="text-base px-8 rounded-full border-border hover:bg-secondary group"
               onClick={() => scrollTo("work")}
             >
               <Play className="mr-2 h-4 w-4 fill-current" />
@@ -135,7 +113,7 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/20 flex items-start justify-center p-1.5"
+          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-1.5"
         >
           <motion.div className="w-1.5 h-1.5 rounded-full bg-primary" />
         </motion.div>

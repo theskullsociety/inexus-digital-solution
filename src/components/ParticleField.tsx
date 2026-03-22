@@ -30,14 +30,14 @@ export function ParticleField() {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = Math.min(25, Math.floor(window.innerWidth / 60));
+    const count = Math.min(20, Math.floor(window.innerWidth / 80));
     particlesRef.current = Array.from({ length: count }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 2 + 0.5,
-      opacity: Math.random() * 0.5 + 0.1,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      size: Math.random() * 1.5 + 0.5,
+      opacity: Math.random() * 0.15 + 0.05,
       pulse: Math.random() * Math.PI * 2,
       pulseSpeed: Math.random() * 0.02 + 0.005,
     }));
@@ -54,9 +54,8 @@ export function ParticleField() {
 
       for (const p of particles) {
         p.pulse += p.pulseSpeed;
-        const pulseOpacity = p.opacity + Math.sin(p.pulse) * 0.15;
+        const pulseOpacity = p.opacity + Math.sin(p.pulse) * 0.05;
 
-        // Mouse repulsion
         const dx = p.x - mouse.x;
         const dy = p.y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -78,11 +77,10 @@ export function ParticleField() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(165, 80%, 42%, ${pulseOpacity})`;
+        ctx.fillStyle = `hsla(0, 0%, 60%, ${pulseOpacity})`;
         ctx.fill();
       }
 
-      // Draw connections
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -92,7 +90,7 @@ export function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(165, 80%, 42%, ${0.07 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `hsla(0, 0%, 60%, ${0.04 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
