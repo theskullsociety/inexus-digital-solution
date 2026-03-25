@@ -72,7 +72,7 @@ export function HeroSection() {
           >
             <Button
               size="lg"
-              className="text-base px-8 rounded-full group bg-foreground text-background hover:bg-foreground/90"
+              className="text-base px-8 rounded-full group bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={() => scrollTo("contact")}
             >
               Start Your Project

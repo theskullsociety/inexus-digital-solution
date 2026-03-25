@@ -19,9 +19,9 @@ function ParticleSphere() {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
 
-    const primaryColor = new THREE.Color("hsl(24, 90%, 55%)");
-    const accentColor = new THREE.Color("hsl(0, 0%, 20%)");
-    const warmColor = new THREE.Color("hsl(30, 80%, 60%)");
+    const primaryColor = new THREE.Color("hsl(210, 80%, 50%)");
+    const accentColor = new THREE.Color("hsl(210, 30%, 70%)");
+    const warmColor = new THREE.Color("hsl(200, 75%, 55%)");
 
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
@@ -102,17 +102,17 @@ function BrandText3D() {
     const ctx = canvas.getContext("2d")!;
     ctx.clearRect(0, 0, 1024, 256);
 
-    ctx.shadowColor = "hsl(24, 90%, 55%)";
+    ctx.shadowColor = "hsl(210, 80%, 50%)";
     ctx.shadowBlur = 40;
     ctx.font = "bold 80px 'Space Grotesk', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    ctx.fillStyle = "rgba(230, 120, 50, 0.3)";
+    ctx.fillStyle = "rgba(50, 130, 230, 0.3)";
     ctx.fillText("DIGIVYRAL", 512, 128);
 
     ctx.shadowBlur = 20;
-    ctx.fillStyle = "rgba(230, 120, 50, 0.6)";
+    ctx.fillStyle = "rgba(50, 130, 230, 0.6)";
     ctx.fillText("DIGIVYRAL", 512, 128);
 
     ctx.shadowBlur = 8;
@@ -189,9 +189,9 @@ export function HeroSphere() {
         <group scale={0.5}>
           <ParticleSphere />
           <BrandText3D />
-          <OrbitRing radius={2.2} speed={0.12} color="hsl(24, 90%, 55%)" opacity={0.2} />
-          <OrbitRing radius={2.5} speed={-0.08} color="hsl(0, 0%, 40%)" opacity={0.1} />
-          <OrbitRing radius={2.8} speed={0.05} color="hsl(30, 80%, 60%)" opacity={0.08} />
+          <OrbitRing radius={2.2} speed={0.12} color="hsl(210, 80%, 50%)" opacity={0.2} />
+          <OrbitRing radius={2.5} speed={-0.08} color="hsl(210, 30%, 70%)" opacity={0.1} />
+          <OrbitRing radius={2.8} speed={0.05} color="hsl(200, 75%, 55%)" opacity={0.08} />
         </group>
       </Canvas>
     </div>
