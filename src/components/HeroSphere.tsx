@@ -19,9 +19,10 @@ function ParticleSphere() {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
 
-    const primaryColor = new THREE.Color("hsl(210, 80%, 50%)");
-    const accentColor = new THREE.Color("hsl(210, 30%, 70%)");
-    const warmColor = new THREE.Color("hsl(200, 75%, 55%)");
+    const blue = new THREE.Color("hsl(217, 75%, 55%)");
+    const cyan = new THREE.Color("hsl(195, 85%, 50%)");
+    const red = new THREE.Color("hsl(5, 75%, 55%)");
+    const gold = new THREE.Color("hsl(45, 90%, 55%)");
 
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
@@ -34,10 +35,12 @@ function ParticleSphere() {
 
       const t = (positions[i * 3 + 1] + 2) / 4;
       const mixColor = new THREE.Color();
-      if (t < 0.5) {
-        mixColor.lerpColors(accentColor, primaryColor, t * 2);
+      if (t < 0.33) {
+        mixColor.lerpColors(red, gold, t * 3);
+      } else if (t < 0.66) {
+        mixColor.lerpColors(gold, blue, (t - 0.33) * 3);
       } else {
-        mixColor.lerpColors(primaryColor, warmColor, (t - 0.5) * 2);
+        mixColor.lerpColors(blue, cyan, (t - 0.66) * 3);
       }
 
       colors[i * 3] = mixColor.r;
@@ -50,7 +53,6 @@ function ParticleSphere() {
 
   useFrame(({ clock, pointer }) => {
     if (!meshRef.current) return;
-
     mouseRef.current.x += (pointer.x * 0.3 - mouseRef.current.x) * 0.05;
     mouseRef.current.y += (pointer.y * 0.3 - mouseRef.current.y) * 0.05;
 
@@ -70,7 +72,7 @@ function ParticleSphere() {
         <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
         <bufferAttribute attach="attributes-color" count={colors.length / 3} array={colors} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={0.025} vertexColors transparent opacity={0.85} sizeAttenuation depthWrite={false} />
+      <pointsMaterial size={0.025} vertexColors transparent opacity={0.9} sizeAttenuation depthWrite={false} />
     </points>
   );
 }
@@ -102,22 +104,22 @@ function BrandText3D() {
     const ctx = canvas.getContext("2d")!;
     ctx.clearRect(0, 0, 1024, 256);
 
-    ctx.shadowColor = "hsl(210, 80%, 50%)";
+    ctx.shadowColor = "hsl(217, 75%, 55%)";
     ctx.shadowBlur = 40;
     ctx.font = "bold 80px 'Space Grotesk', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    ctx.fillStyle = "rgba(50, 130, 230, 0.3)";
+    ctx.fillStyle = "rgba(60, 130, 240, 0.3)";
     ctx.fillText("DIGIVYRAL", 512, 128);
 
     ctx.shadowBlur = 20;
-    ctx.fillStyle = "rgba(50, 130, 230, 0.6)";
+    ctx.fillStyle = "rgba(60, 130, 240, 0.6)";
     ctx.fillText("DIGIVYRAL", 512, 128);
 
     ctx.shadowBlur = 8;
-    ctx.shadowColor = "#333";
-    ctx.fillStyle = "#1a1a1a";
+    ctx.shadowColor = "rgba(0,0,0,0.5)";
+    ctx.fillStyle = "#e0e8f0";
     ctx.fillText("DIGIVYRAL", 512, 128);
 
     const texture = new THREE.CanvasTexture(canvas);
@@ -189,9 +191,9 @@ export function HeroSphere() {
         <group scale={0.5}>
           <ParticleSphere />
           <BrandText3D />
-          <OrbitRing radius={2.2} speed={0.12} color="hsl(210, 80%, 50%)" opacity={0.2} />
-          <OrbitRing radius={2.5} speed={-0.08} color="hsl(210, 30%, 70%)" opacity={0.1} />
-          <OrbitRing radius={2.8} speed={0.05} color="hsl(200, 75%, 55%)" opacity={0.08} />
+          <OrbitRing radius={2.2} speed={0.12} color="hsl(217, 75%, 55%)" opacity={0.25} />
+          <OrbitRing radius={2.5} speed={-0.08} color="hsl(5, 75%, 55%)" opacity={0.15} />
+          <OrbitRing radius={2.8} speed={0.05} color="hsl(45, 90%, 55%)" opacity={0.1} />
         </group>
       </Canvas>
     </div>

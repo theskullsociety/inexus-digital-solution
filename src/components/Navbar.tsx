@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
@@ -36,7 +36,7 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-xl shadow-sm border-b border-border/50"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/40"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -53,23 +53,25 @@ export function Navbar() {
               className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group"
             >
               {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
             </button>
           ))}
           <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group">
             Blog
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300" />
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
           </Link>
           <Link to="/careers" className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group">
             Careers
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300" />
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
           </Link>
           <Button
             size="sm"
             onClick={() => scrollTo("contact")}
-            className="rounded-full px-6 bg-foreground text-background hover:bg-foreground/90"
+            className="rounded-full px-6 border border-border/60 bg-transparent text-foreground hover:bg-accent group"
+            variant="outline"
           >
             Get Started
+            <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
           </Button>
         </div>
 
@@ -102,8 +104,9 @@ export function Navbar() {
               <Link to="/careers" onClick={() => setMobileOpen(false)} className="text-left text-muted-foreground hover:text-foreground transition-colors">
                 Careers
               </Link>
-              <Button size="sm" onClick={() => scrollTo("contact")} className="w-fit rounded-full px-6 bg-foreground text-background hover:bg-foreground/90">
+              <Button size="sm" onClick={() => scrollTo("contact")} className="w-fit rounded-full px-6 border border-border/60 bg-transparent text-foreground hover:bg-accent" variant="outline">
                 Get Started
+                <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
           </motion.div>
