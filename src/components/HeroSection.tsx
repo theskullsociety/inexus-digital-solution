@@ -154,7 +154,7 @@ export function HeroSection() {
               transition={{ delay: 3, duration: 0.6 }}
               className="absolute -left-2 bottom-[15%] bg-card border border-border/40 rounded-2xl rounded-bl-sm px-4 py-2.5 shadow-lg"
             >
-              <p className="text-xs font-bold text-green-400">Campaign live ✓</p>
+              <p className="text-xs font-bold text-primary">Campaign live ✓</p>
             </motion.div>
           </div>
         </motion.div>
