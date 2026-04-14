@@ -4,6 +4,7 @@ import { ArrowRight, ExternalLink, CheckCircle2, Palette, Globe, BarChart3 } fro
 import { Button } from "@/components/ui/button";
 import portfolioDental from "@/assets/portfolio-dental.webp";
 import portfolioTravel from "@/assets/portfolio-travel.webp";
+import portfolioEducationopedia from "@/assets/portfolio-educationopedia.webp";
 
 const filters = [
   { id: "all", label: "All", icon: null },
