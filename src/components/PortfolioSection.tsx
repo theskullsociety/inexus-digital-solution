@@ -52,6 +52,28 @@ const projects = [
     ],
     cta: { label: "Visit Live Website", href: "https://skyroutestravel.com", external: true },
   },
+  {
+    id: 3,
+    title: "Educationopedia.com — MBBS Abroad Platform",
+    category: "Education Industry",
+    filterTag: "web",
+    type: "Website Design + Development",
+    image: portfolioEducationopedia,
+    description:
+      "Designed and developed a full-scale education consultancy platform for Educationopedia, helping Indian students find NMC & WHO approved MBBS universities across 45+ countries. Built with conversion-focused UX, search functionality, and counselling booking flow.",
+    features: [
+      "University search & filtering",
+      "Course & country pages",
+      "Counselling booking system",
+      "Mobile-first responsive design",
+    ],
+    results: [
+      "5,000+ students placed",
+      "2,000+ partner universities",
+      "45+ countries covered",
+    ],
+    cta: { label: "Visit Live Website", href: "https://educationopedia.com", external: true },
+  },
 ];
 
 export function PortfolioSection() {
