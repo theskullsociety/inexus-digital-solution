@@ -15,7 +15,7 @@
     --popover: 222 44% 11%;
     --popover-foreground: 210 20% 95%;
 
-    --primary: 217 75% 55%;
+    --primary: 330 85% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 222 30% 16%;
@@ -32,22 +32,22 @@
 
     --border: 222 20% 18%;
     --input: 222 20% 18%;
-    --ring: 217 75% 55%;
+    --ring: 330 85% 60%;
 
     --radius: 0.75rem;
 
-    --glow-primary: 217 75% 55%;
-    --glow-accent: 210 60% 50%;
+    --glow-primary: 330 85% 60%;
+    --glow-accent: 20 95% 60%;
     --surface-glass: 222 30% 12%;
 
     --sidebar-background: 222 44% 10%;
     --sidebar-foreground: 220 15% 55%;
-    --sidebar-primary: 217 75% 55%;
+    --sidebar-primary: 330 85% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 222 30% 16%;
     --sidebar-accent-foreground: 220 15% 55%;
     --sidebar-border: 222 20% 18%;
-    --sidebar-ring: 217 75% 55%;
+    --sidebar-ring: 330 85% 60%;
   }
 }
 
@@ -74,12 +74,12 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(217 75% 60%), hsl(200 80% 60%), hsl(230 70% 55%));
+    background-image: linear-gradient(135deg, hsl(330 90% 65%), hsl(20 95% 60%), hsl(45 100% 60%));
   }
 
   .text-gradient-warm {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(217 75% 55%), hsl(190 90% 55%));
+    background-image: linear-gradient(135deg, hsl(330 85% 60%), hsl(20 95% 60%));
   }
 
   .text-faded {
@@ -88,21 +88,21 @@
 
   .glow {
     box-shadow:
-      0 0 20px hsl(217 75% 55% / 0.2),
-      0 0 60px hsl(217 75% 55% / 0.08),
+      0 0 20px hsl(330 85% 60% / 0.3),
+      0 0 60px hsl(20 95% 60% / 0.15),
       0 4px 20px hsl(0 0% 0% / 0.3);
   }
 
   .glow-sm {
     box-shadow:
-      0 0 10px hsl(217 75% 55% / 0.15),
+      0 0 14px hsl(330 85% 60% / 0.25),
       0 2px 10px hsl(0 0% 0% / 0.2);
   }
 
   .glow-accent {
     box-shadow:
-      0 0 20px hsl(210 60% 50% / 0.15),
-      0 0 60px hsl(210 60% 50% / 0.06);
+      0 0 20px hsl(20 95% 60% / 0.2),
+      0 0 60px hsl(330 85% 60% / 0.1);
   }
 
   .glass {
