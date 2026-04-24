@@ -4,7 +4,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
-import logoFull from "@/assets/logo-full.webp";
+import logoFull from "@/assets/digivyral-logo-dark.png";
 
 const scrollNavItems = ["Services", "Work", "Contact"];
 
@@ -42,7 +42,7 @@ export function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="flex items-center">
-          <img src={logoFull} alt="Digivyral" className="h-8 md:h-10 object-contain" />
+          <img src={logoFull} alt="Digivyral — Ignite Your Growth" className="h-9 md:h-11 object-contain" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
