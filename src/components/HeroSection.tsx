@@ -17,9 +17,10 @@ export function HeroSection() {
       aria-label="Hero - Digital Marketing Agency"
       className="relative min-h-screen flex items-center overflow-hidden noise-bg"
     >
-      {/* Background radial glows */}
-      <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary/[0.06] blur-[150px] pointer-events-none" />
-      <div className="absolute top-[15%] left-[5%] w-[400px] h-[400px] rounded-full bg-primary/[0.04] blur-[100px] pointer-events-none" />
+      {/* Background radial glows — pink/magenta to orange */}
+      <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[hsl(330_85%_55%/0.18)] blur-[160px] pointer-events-none" />
+      <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full bg-[hsl(20_95%_55%/0.12)] blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[20%] w-[450px] h-[450px] rounded-full bg-[hsl(45_100%_55%/0.08)] blur-[130px] pointer-events-none" />
 
       <div className="relative z-10 container mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-6">
         {/* Left: Text content */}
@@ -92,7 +93,7 @@ export function HeroSection() {
             </div>
             <Button
               size="lg"
-              className="h-14 px-8 rounded-xl text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 glow-sm group whitespace-nowrap"
+              className="h-14 px-8 rounded-xl text-base font-semibold bg-gradient-to-r from-[hsl(330_85%_60%)] to-[hsl(20_95%_60%)] text-primary-foreground hover:opacity-90 glow-sm group whitespace-nowrap border-0"
               onClick={() => scrollTo("contact")}
             >
               Get Started
