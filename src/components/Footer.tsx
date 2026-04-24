@@ -1,5 +1,5 @@
 import { Instagram } from "lucide-react";
-import logoFull from "@/assets/logo-full.webp";
+import logoFull from "@/assets/digivyral-logo-dark.png";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="mb-3">
-              <img src={logoFull} alt="Digivyral" className="h-12 md:h-14 object-contain" />
+              <img src={logoFull} alt="Digivyral — Ignite Your Growth" className="h-14 md:h-16 object-contain" />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               India's #1 digital marketing & web development agency. We make brands go viral.
