@@ -18,6 +18,58 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "google-ai-overviews-ranking-guide-2026",
+    title: "How to Rank Inside Google AI Overviews in 2026 (Step-by-Step)",
+    excerpt:
+      "Google AI Overviews now answer 50% of searches without a click. Here's the exact playbook our team uses to get clients cited inside AI Overviews — and the traffic that follows.",
+    category: "SEO",
+    author: "Digivyral Team",
+    date: "2026-04-22",
+    readTime: "11 min read",
+    image:
+      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
+    tags: ["AEO", "Google AI Overviews", "SEO 2026", "SGE"],
+  },
+  {
+    slug: "whatsapp-marketing-india-2026",
+    title: "WhatsApp Marketing in India 2026: The Complete Revenue Playbook",
+    excerpt:
+      "WhatsApp drives 95% open rates and 30%+ revenue for Indian brands. Learn the flows, tools, and templates that work in 2026 — from abandoned cart to broadcast.",
+    category: "Performance Marketing",
+    author: "Digivyral Team",
+    date: "2026-04-15",
+    readTime: "9 min read",
+    image:
+      "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&q=80",
+    tags: ["WhatsApp marketing", "India", "automation", "ecommerce"],
+  },
+  {
+    slug: "instagram-reels-algorithm-2026",
+    title: "Instagram Reels Algorithm 2026: What's Changed (And How to Win)",
+    excerpt:
+      "The Reels algorithm has been quietly rewritten in 2026. Watch time, saves, and originality now beat raw views. Here's how top creators are adapting.",
+    category: "Social Media",
+    author: "Digivyral Team",
+    date: "2026-04-08",
+    readTime: "7 min read",
+    image:
+      "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&q=80",
+    tags: ["Instagram", "Reels", "algorithm", "creators"],
+  },
+  {
+    slug: "google-ads-performance-max-2026",
+    title: "Google Performance Max in 2026: Stop Losing Money — Start Scaling",
+    excerpt:
+      "Performance Max is brutal for most brands. Here are the 8 settings, asset rules, and feed tactics our PPC team uses to make PMax profitable at scale.",
+    category: "PPC",
+    author: "Digivyral Team",
+    date: "2026-03-28",
+    readTime: "10 min read",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    tags: ["Google Ads", "Performance Max", "PPC", "ROAS"],
+  },
+  {
     slug: "10-digital-marketing-strategies-2026",
     title: "10 Digital Marketing Strategies That Will Dominate 2026",
     excerpt:
