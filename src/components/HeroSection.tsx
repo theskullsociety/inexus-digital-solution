@@ -115,9 +115,16 @@ export function HeroSection() {
             {/* Device frame */}
             <div className="relative rounded-3xl border border-border/40 bg-card/50 p-2 shadow-2xl shadow-primary/10 overflow-hidden">
               <div className="rounded-2xl overflow-hidden aspect-[4/5] relative bg-background">
-                <Suspense fallback={<div className="w-full h-full" />}>
-                  <HeroSphere />
-                </Suspense>
+                {!isMobile && (
+                  <Suspense fallback={<div className="w-full h-full" />}>
+                    <HeroSphere />
+                  </Suspense>
+                )}
+                {isMobile && (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-48 h-48 rounded-full bg-gradient-to-br from-[hsl(330_85%_55%/0.4)] via-[hsl(20_95%_60%/0.3)] to-[hsl(45_100%_55%/0.2)] blur-2xl" />
+                  </div>
+                )}
               </div>
               {/* Device notch */}
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-1.5 rounded-full bg-border/40" />
