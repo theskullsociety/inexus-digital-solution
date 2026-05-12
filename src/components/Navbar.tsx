@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { services, serviceCategories, getServicesByCategory } from "@/data/services";
 
-import logoFull from "@/assets/digivyral-logo-dark.png";
+import logoFull from "@/assets/digivyral-logo-dark.webp";
 
 const scrollNavItems = ["Work", "Contact"];
 

@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import logoIcon from "@/assets/logo-icon.webp";
 import insta1 from "@/assets/insta-1.webp";
 import insta2 from "@/assets/insta-2.webp";
-import insta3 from "@/assets/insta-3.jpg";
-import insta4 from "@/assets/insta-4.jpg";
-import insta5 from "@/assets/insta-5.jpg";
-import insta6 from "@/assets/insta-6.jpg";
+import insta3 from "@/assets/insta-3.webp";
+import insta4 from "@/assets/insta-4.webp";
+import insta5 from "@/assets/insta-5.webp";
+import insta6 from "@/assets/insta-6.webp";
 
 const posts = [
   { image: insta1, likes: 124, comments: 18, caption: "Custom Website Development — responsive, SEO-optimized & high converting 💻" },
