@@ -18,6 +18,19 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "google-ai-mode-chrome-seo-2026",
+    title: "Google AI Mode in Chrome: What It Means for SEO, Traffic & Brands in 2026",
+    excerpt:
+      "On April 16, 2026, Google launched AI Mode directly inside Chrome — and it's quietly rewriting how organic traffic works. Here's the full breakdown, the data so far, and 14 FAQs marketers are asking right now.",
+    category: "SEO",
+    author: "Digivyral Team",
+    date: "2026-05-12",
+    readTime: "13 min read",
+    image:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80",
+    tags: ["Google AI Mode", "Chrome", "GEO", "AEO", "AI search 2026"],
+  },
+  {
     slug: "google-ai-overviews-ranking-guide-2026",
     title: "How to Rank Inside Google AI Overviews in 2026 (Step-by-Step)",
     excerpt:
