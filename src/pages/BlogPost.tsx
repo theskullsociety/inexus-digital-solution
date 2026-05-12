@@ -316,6 +316,82 @@ const BlogPost = () => {
   const content = blogContent[slug];
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
+  // SEO: page title, description, and FAQ JSON-LD schema
+  useEffect(() => {
+    if (!post) return;
+    const prevTitle = document.title;
+    document.title = `${post.title} | Digivyral Blog`;
+
+    const setMeta = (name: string, content: string, attr: "name" | "property" = "name") => {
+      let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+      return el;
+    };
+    const descEl = setMeta("description", post.excerpt);
+    const ogTitle = setMeta("og:title", post.title, "property");
+    const ogDesc = setMeta("og:description", post.excerpt, "property");
+    const ogImage = setMeta("og:image", post.image, "property");
+    const ogType = setMeta("og:type", "article", "property");
+
+    // Build FAQPage schema from "## Question?" + next paragraph pairs
+    const faqs: { q: string; a: string }[] = [];
+    for (let i = 0; i < content.length - 1; i++) {
+      const block = content[i];
+      if (block.startsWith("## ") && block.trim().endsWith("?")) {
+        const next = content[i + 1];
+        if (next && !next.startsWith("## ")) {
+          faqs.push({ q: block.replace("## ", "").trim(), a: next });
+        }
+      }
+    }
+
+    const scripts: HTMLScriptElement[] = [];
+    if (faqs.length >= 2) {
+      const faqScript = document.createElement("script");
+      faqScript.type = "application/ld+json";
+      faqScript.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      });
+      document.head.appendChild(faqScript);
+      scripts.push(faqScript);
+    }
+
+    const articleScript = document.createElement("script");
+    articleScript.type = "application/ld+json";
+    articleScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: post.title,
+      description: post.excerpt,
+      image: post.image,
+      datePublished: post.date,
+      author: { "@type": "Organization", name: post.author },
+      publisher: {
+        "@type": "Organization",
+        name: "Digivyral",
+      },
+    });
+    document.head.appendChild(articleScript);
+    scripts.push(articleScript);
+
+    return () => {
+      document.title = prevTitle;
+      scripts.forEach((s) => s.remove());
+      [descEl, ogTitle, ogDesc, ogImage, ogType].forEach((m) => m && m.remove());
+    };
+  }, [post, content, slug]);
+
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString("en-IN", {
       year: "numeric",
