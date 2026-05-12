@@ -2,11 +2,13 @@ import { lazy, Suspense, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSphere = lazy(() => import("@/components/HeroSphere").then(m => ({ default: m.HeroSphere })));
 
 export function HeroSection() {
   const [brandUrl, setBrandUrl] = useState("");
+  const isMobile = useIsMobile();
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
