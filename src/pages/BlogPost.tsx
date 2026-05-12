@@ -395,6 +395,10 @@ const BlogPost = () => {
       day: "numeric",
     });
 
+  if (!post || !hasContent) {
+    return <Navigate to="/blog" replace />;
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
