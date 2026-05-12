@@ -308,12 +308,8 @@ const blogContent: Record<string, string[]> = {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find((p) => p.slug === slug);
-
-  if (!post || !slug || !blogContent[slug]) {
-    return <Navigate to="/blog" replace />;
-  }
-
-  const content = blogContent[slug];
+  const hasContent = !!(slug && blogContent[slug]);
+  const content = hasContent ? blogContent[slug!] : [];
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
   // SEO: page title, description, and FAQ JSON-LD schema
