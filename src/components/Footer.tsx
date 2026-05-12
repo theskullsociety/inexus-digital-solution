@@ -1,5 +1,5 @@
 import { Instagram } from "lucide-react";
-import logoFull from "@/assets/digivyral-logo-dark.png";
+import logoFull from "@/assets/digivyral-logo-dark.webp";
 
 export function Footer() {
   return (
