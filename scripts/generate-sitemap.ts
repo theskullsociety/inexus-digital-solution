@@ -1,12 +1,18 @@
-// Generates public/sitemap.xml from static routes + services + blog posts.
-// Run with: bunx tsx scripts/generate-sitemap.ts
-import { writeFileSync } from "fs";
+// Generates public/sitemap.xml. Parses slugs from source to avoid importing webp assets.
+import { writeFileSync, readFileSync } from "fs";
 import { resolve } from "path";
-import { services } from "../src/data/services";
-import { blogPosts } from "../src/pages/Blog";
 
 const BASE_URL = "https://digivyral.com";
 const today = new Date().toISOString().slice(0, 10);
+
+function extractSlugs(file: string): string[] {
+  const src = readFileSync(file, "utf8");
+  const matches = src.matchAll(/slug:\s*"([^"]+)"/g);
+  return [...matches].map((m) => m[1]);
+}
+
+const serviceSlugs = extractSlugs("src/data/services.ts");
+const blogSlugs = extractSlugs("src/pages/Blog.tsx");
 
 interface Entry {
   path: string;
@@ -20,17 +26,17 @@ const entries: Entry[] = [
   { path: "/services", changefreq: "monthly", priority: "0.9", lastmod: today },
   { path: "/blog", changefreq: "weekly", priority: "0.9", lastmod: today },
   { path: "/careers", changefreq: "monthly", priority: "0.6", lastmod: today },
-  ...services.map((s) => ({
-    path: `/services/${s.slug}`,
+  ...serviceSlugs.map((s) => ({
+    path: `/services/${s}`,
     changefreq: "monthly",
     priority: "0.8",
     lastmod: today,
   })),
-  ...blogPosts.map((b) => ({
-    path: `/blog/${b.slug}`,
+  ...blogSlugs.map((s) => ({
+    path: `/blog/${s}`,
     changefreq: "monthly",
     priority: "0.7",
-    lastmod: b.date,
+    lastmod: today,
   })),
 ];
 
