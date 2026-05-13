@@ -1,37 +1,57 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
-import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { getServiceBySlug, services } from "@/data/services";
+import { useSEO } from "@/hooks/use-seo";
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? getServiceBySlug(slug) : undefined;
 
-  // Set SEO meta tags
-  useEffect(() => {
-    if (!service) return;
-    document.title = `${service.name} | Digivyral`;
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", service.metaDescription);
-
-    // Canonical
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", `${window.location.origin}/services/${service.slug}`);
-  }, [service]);
+  useSEO({
+    title: service
+      ? `${service.name} Services in India | Digivyral`
+      : "Service | Digivyral",
+    description:
+      service?.metaDescription ??
+      "Digivyral digital marketing & web development services.",
+    keywords: service
+      ? `${service.name}, ${service.name} services, ${service.name} agency India, ${service.category}, Digivyral, digital marketing, ${service.slug.replace(/-/g, " ")}`
+      : undefined,
+    canonical: service ? `/services/${service.slug}` : "/services",
+    ogImage: service?.image,
+    ogType: "article",
+    jsonLd: service
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.name,
+            description: service.metaDescription,
+            provider: {
+              "@type": "Organization",
+              name: "Digivyral",
+              url: "https://digivyral.com",
+            },
+            areaServed: ["India", "United States", "United Kingdom", "UAE"],
+            serviceType: service.category,
+            url: `https://digivyral.com/services/${service.slug}`,
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://digivyral.com/" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://digivyral.com/services" },
+              { "@type": "ListItem", position: 3, name: service.name, item: `https://digivyral.com/services/${service.slug}` },
+            ],
+          },
+        ]
+      : undefined,
+  });
 
   if (!service) {
     return <Navigate to="/services" replace />;
