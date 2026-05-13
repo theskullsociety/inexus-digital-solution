@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Clock, IndianRupee, Home, ChevronRight, Star, Target, Users, TrendingUp } from "lucide-react";
+import { useSEO } from "@/hooks/use-seo";
 
 const BusinessManagerOpening = () => {
   const handleApply = () => {
@@ -138,6 +139,14 @@ const BusinessManagerOpening = () => {
 };
 
 const Careers = () => {
+  useSEO({
+    title: "Careers at Digivyral — Join India's Fastest-Growing Marketing Agency",
+    description:
+      "Build your career at Digivyral. We're hiring a Business Manager with 50% revenue share + accommodation. Lead, grow, and own a digital marketing agency in India.",
+    keywords:
+      "digital marketing jobs India, marketing agency careers, business manager jobs, revenue share jobs, Digivyral careers, agency jobs Gurgaon",
+    canonical: "/careers",
+  });
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
