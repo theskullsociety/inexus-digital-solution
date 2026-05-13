@@ -3,6 +3,7 @@ import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/hooks/use-seo";
 
 export interface BlogPost {
   slug: string;
@@ -171,6 +172,28 @@ function formatDate(dateStr: string) {
 }
 
 const Blog = () => {
+  useSEO({
+    title: "Digital Marketing Blog 2026 — SEO, AEO, Ads, Social | Digivyral",
+    description:
+      "Latest digital marketing insights from Digivyral — Google AI Mode, AEO, SEO 2026, WhatsApp marketing, Instagram Reels algorithm, Performance Max, and growth playbooks for Indian brands.",
+    keywords:
+      "digital marketing blog, SEO blog 2026, AEO, GEO, Google AI Mode, AI search SEO, WhatsApp marketing India, Instagram Reels algorithm, Performance Max, content marketing, social media trends 2026, Digivyral blog",
+    canonical: "/blog",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "Digivyral Blog",
+      url: "https://digivyral.com/blog",
+      blogPost: blogPosts.map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        datePublished: p.date,
+        author: { "@type": "Organization", name: "Digivyral" },
+        url: `https://digivyral.com/blog/${p.slug}`,
+        image: p.image,
+      })),
+    },
+  });
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
