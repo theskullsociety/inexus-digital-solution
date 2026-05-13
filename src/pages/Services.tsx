@@ -1,25 +1,30 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { serviceCategories, getServicesByCategory } from "@/data/services";
+import { serviceCategories, getServicesByCategory, services } from "@/data/services";
+import { useSEO } from "@/hooks/use-seo";
 
 const Services = () => {
-  useEffect(() => {
-    document.title = "Services | Digivyral — Web, Design, Marketing & Hosting";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute(
-      "content",
-      "Explore Digivyral's full-stack services — web & app development, UI/UX design, SEO, performance marketing, hosting, and security. One agency, every digital channel.",
-    );
-  }, []);
+  useSEO({
+    title: "Digital Marketing & Web Development Services | Digivyral India",
+    description:
+      "Explore Digivyral's full-stack services — web & app development, UI/UX design, SEO, AEO, Google Ads, social media marketing, brand identity, hosting & security. One agency, every channel.",
+    keywords:
+      "digital marketing services India, SEO agency, web development services, app development, UI UX design, social media marketing, Google Ads management, Meta Ads, performance marketing, brand identity design, e-commerce development, hosting services, Digivyral services",
+    canonical: "/services",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      itemListElement: services.map((s, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: s.name,
+        url: `https://digivyral.com/services/${s.slug}`,
+      })),
+    },
+  });
 
   return (
     <div className="min-h-screen bg-background">
