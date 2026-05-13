@@ -16,7 +16,17 @@ const InstagramSection = lazy(() => import("@/components/InstagramSection").then
 const CTASection = lazy(() => import("@/components/CTASection").then(m => ({ default: m.CTASection })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
+import { useSEO } from "@/hooks/use-seo";
+
 const Index = () => {
+  useSEO({
+    title: "Digivyral | #1 Digital Marketing & Web Development Agency India",
+    description:
+      "Digivyral is India's leading digital marketing & web development agency. SEO, AEO, Google Ads, Meta Ads, social media, brand design & high-converting websites. Call +91 93060 36161.",
+    keywords:
+      "digital marketing agency India, SEO services, web development company, social media marketing, Google Ads agency, Meta Ads, performance marketing, brand design, e-commerce development, AEO, GEO, AI search, Digivyral",
+    canonical: "/",
+  });
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
