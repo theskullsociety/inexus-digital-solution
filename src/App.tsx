@@ -12,6 +12,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Careers = lazy(() => import("./pages/Careers"));
 const Services = lazy(() => import("./pages/Services"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const LocationPage = lazy(() => import("./pages/LocationPage"));
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,8 @@ const App = () => (
             <Route path="/careers" element={<Careers />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />
+            <Route path="/digital-marketing-agency-gurgaon" element={<LocationPage />} />
+            <Route path="/digital-marketing-agency-delhi-ncr" element={<LocationPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
