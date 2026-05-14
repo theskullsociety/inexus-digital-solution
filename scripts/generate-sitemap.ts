@@ -13,6 +13,7 @@ function extractSlugs(file: string): string[] {
 
 const serviceSlugs = extractSlugs("src/data/services.ts");
 const blogSlugs = extractSlugs("src/pages/Blog.tsx");
+const locationSlugs = extractSlugs("src/data/locations.ts");
 
 interface Entry {
   path: string;
@@ -36,6 +37,12 @@ const entries: Entry[] = [
     path: `/blog/${s}`,
     changefreq: "monthly",
     priority: "0.7",
+    lastmod: today,
+  })),
+  ...locationSlugs.map((s) => ({
+    path: `/${s}`,
+    changefreq: "monthly",
+    priority: "0.85",
     lastmod: today,
   })),
 ];
