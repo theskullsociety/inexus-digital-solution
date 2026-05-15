@@ -2,7 +2,7 @@
 import { writeFileSync, readFileSync } from "fs";
 import { resolve } from "path";
 
-const BASE_URL = "https://digivyral.com";
+const BASE_URL = "https://digivyral.lovable.app";
 const today = new Date().toISOString().slice(0, 10);
 
 function extractSlugs(file: string): string[] {

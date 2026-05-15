@@ -312,11 +312,18 @@ const BlogPost = () => {
   const content = hasContent ? blogContent[slug!] : [];
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
-  // SEO: page title, description, and FAQ JSON-LD schema
+  // SEO: page title, description, canonical, og:url, and JSON-LD schemas
   useEffect(() => {
     if (!post) return;
     const prevTitle = document.title;
-    document.title = `${post.title} | Digivyral Blog`;
+    const SITE = "https://digivyral.lovable.app";
+    const pageUrl = `${SITE}/blog/${post.slug}`;
+    const truncate = (s: string, n: number) =>
+      s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…";
+    const titleRaw = `${post.title} | Digivyral`;
+    const pageTitle = truncate(titleRaw, 60);
+    const desc = truncate(post.excerpt, 160);
+    document.title = pageTitle;
 
     const setMeta = (name: string, content: string, attr: "name" | "property" = "name") => {
       let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
@@ -328,11 +335,25 @@ const BlogPost = () => {
       el.setAttribute("content", content);
       return el;
     };
-    const descEl = setMeta("description", post.excerpt);
-    const ogTitle = setMeta("og:title", post.title, "property");
-    const ogDesc = setMeta("og:description", post.excerpt, "property");
+    const descEl = setMeta("description", desc);
+    const ogTitle = setMeta("og:title", pageTitle, "property");
+    const ogDesc = setMeta("og:description", desc, "property");
     const ogImage = setMeta("og:image", post.image, "property");
     const ogType = setMeta("og:type", "article", "property");
+    const ogUrl = setMeta("og:url", pageUrl, "property");
+    const twTitle = setMeta("twitter:title", pageTitle);
+    const twDesc = setMeta("twitter:description", desc);
+    const twImage = setMeta("twitter:image", post.image);
+
+    // Self-referencing canonical
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    const prevCanonical = canonical?.getAttribute("href") || null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", pageUrl);
 
     // Build FAQPage schema from "## Question?" + next paragraph pairs
     const faqs: { q: string; a: string }[] = [];
@@ -369,14 +390,13 @@ const BlogPost = () => {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: post.title,
-      description: post.excerpt,
+      description: desc,
       image: post.image,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
       datePublished: post.date,
       author: { "@type": "Organization", name: post.author },
-      publisher: {
-        "@type": "Organization",
-        name: "Digivyral",
-      },
+      publisher: { "@type": "Organization", name: "Digivyral" },
     });
     document.head.appendChild(articleScript);
     scripts.push(articleScript);
@@ -384,7 +404,12 @@ const BlogPost = () => {
     return () => {
       document.title = prevTitle;
       scripts.forEach((s) => s.remove());
-      [descEl, ogTitle, ogDesc, ogImage, ogType].forEach((m) => m && m.remove());
+      [descEl, ogTitle, ogDesc, ogImage, ogType, ogUrl, twTitle, twDesc, twImage].forEach(
+        (m) => m && m.remove(),
+      );
+      if (canonical && prevCanonical !== null) {
+        canonical.setAttribute("href", prevCanonical);
+      }
     };
   }, [post, content, slug]);
 

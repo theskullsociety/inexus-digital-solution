@@ -20,9 +20,9 @@ import { useSEO } from "@/hooks/use-seo";
 
 const Index = () => {
   useSEO({
-    title: "Digivyral | #1 Digital Marketing & Web Development Agency India",
+    title: "Digivyral — Digital Marketing & Web Development Agency",
     description:
-      "Digivyral is India's leading digital marketing & web development agency. SEO, AEO, Google Ads, Meta Ads, social media, brand design & high-converting websites. Call +91 93060 36161.",
+      "Digivyral is India's digital marketing agency for SEO, AEO, Google Ads, Meta Ads, social media & high-converting websites. Call +91 93060 36161.",
     keywords:
       "digital marketing agency India, SEO services, web development company, social media marketing, Google Ads agency, Meta Ads, performance marketing, brand design, e-commerce development, AEO, GEO, AI search, Digivyral",
     canonical: "/",

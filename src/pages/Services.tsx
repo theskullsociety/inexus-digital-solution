@@ -8,9 +8,9 @@ import { useSEO } from "@/hooks/use-seo";
 
 const Services = () => {
   useSEO({
-    title: "Digital Marketing & Web Development Services | Digivyral India",
+    title: "Digital Marketing & Web Development Services | Digivyral",
     description:
-      "Explore Digivyral's full-stack services — web & app development, UI/UX design, SEO, AEO, Google Ads, social media marketing, brand identity, hosting & security. One agency, every channel.",
+      "Web & app development, UI/UX, SEO, AEO, Google Ads, social media, brand identity, hosting & security — Digivyral's full-stack agency services in one place.",
     keywords:
       "digital marketing services India, SEO agency, web development services, app development, UI UX design, social media marketing, Google Ads management, Meta Ads, performance marketing, brand identity design, e-commerce development, hosting services, Digivyral services",
     canonical: "/services",

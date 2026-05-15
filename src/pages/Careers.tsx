@@ -140,12 +140,47 @@ const BusinessManagerOpening = () => {
 
 const Careers = () => {
   useSEO({
-    title: "Careers at Digivyral — Join India's Fastest-Growing Marketing Agency",
+    title: "Careers at Digivyral — Join Our Marketing Agency",
     description:
-      "Build your career at Digivyral. We're hiring a Business Manager with 50% revenue share + accommodation. Lead, grow, and own a digital marketing agency in India.",
+      "Hiring a Business Manager with 50% revenue share + accommodation. Lead, grow, and own a digital marketing agency in India with Digivyral.",
     keywords:
       "digital marketing jobs India, marketing agency careers, business manager jobs, revenue share jobs, Digivyral careers, agency jobs Gurgaon",
     canonical: "/careers",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      title: "Business Manager",
+      description:
+        "Lead and grow Digivyral's complete business operations. Drive client acquisition, manage internal teams, build proposals, and own P&L. Strong strategic thinking with hands-on execution required.",
+      datePosted: "2026-01-01",
+      validThrough: "2026-12-31",
+      employmentType: "FULL_TIME",
+      hiringOrganization: {
+        "@type": "Organization",
+        name: "Digivyral",
+        sameAs: "https://digivyral.lovable.app",
+      },
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Gurgaon",
+          addressRegion: "Haryana",
+          addressCountry: "IN",
+        },
+      },
+      baseSalary: {
+        "@type": "MonetaryAmount",
+        currency: "INR",
+        value: {
+          "@type": "QuantitativeValue",
+          value: "50% revenue share + accommodation",
+          unitText: "YEAR",
+        },
+      },
+      jobBenefits: "50% revenue share, fully provided accommodation, full ownership and autonomy",
+      directApply: true,
+    },
   });
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">

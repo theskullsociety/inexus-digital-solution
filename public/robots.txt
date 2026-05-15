@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://digivyral.com/sitemap.xml
+Sitemap: https://digivyral.lovable.app/sitemap.xml

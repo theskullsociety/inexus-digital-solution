@@ -1,0 +1,36 @@
+# Digivyral
+
+> Digivyral is an India-based digital marketing & web development agency offering SEO, AEO/GEO, social media marketing, performance marketing, brand design, and full-stack web/app development.
+
+Digivyral helps brands grow with measurable ROI. Services span SEO, Google Ads, Meta Ads, social media, content, brand identity, web/app development, e-commerce, hosting, and AI search optimization (AEO/GEO). Based in Gurgaon, serving India, US, UK, and UAE.
+
+## Pages
+
+- [Home](/): Agency overview, services, portfolio, and contact.
+- [Services](/services): Full catalog of marketing & development services.
+- [Blog](/blog): Articles on SEO, AI search, social media, and digital marketing trends.
+- [Careers](/careers): Open roles at Digivyral.
+- [Gurgaon](/digital-marketing-agency-gurgaon): Local SEO landing page for Gurgaon.
+- [Delhi NCR](/digital-marketing-agency-delhi-ncr): Local SEO landing page for Delhi NCR.
+
+## Featured Services
+
+- [SEO Services](/services/seo-services): Technical SEO, content, and link building.
+- [Local SEO & GMB](/services/local-seo-gmb): Google Business Profile optimization.
+- [Social Media Marketing](/services/social-media-marketing): Organic + paid social.
+- [PPC & Ads](/services/ppc-ads): Google, Meta, and YouTube ads management.
+- [Web Development](/services/web-development): High-converting custom websites.
+- [E-commerce Development](/services/ecommerce-development): Shopify and WooCommerce.
+- [UI/UX Design](/services/ui-ux-design): Conversion-focused product design.
+
+## Featured Articles
+
+- [Google AI Mode in Chrome](/blog/google-ai-mode-chrome-seo-2026): What it means for SEO in 2026.
+- [Ranking in Google AI Overviews](/blog/google-ai-overviews-ranking-guide-2026): Step-by-step playbook.
+- [WhatsApp Marketing India 2026](/blog/whatsapp-marketing-india-2026): Revenue playbook.
+- [Instagram Reels Algorithm 2026](/blog/instagram-reels-algorithm-2026): What changed and how to win.
+
+## Contact
+
+- Phone: +91 93060 36161
+- Country: India (HQ Gurgaon)
