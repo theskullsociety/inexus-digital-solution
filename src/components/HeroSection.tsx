@@ -95,7 +95,7 @@ export function HeroSection() {
             </div>
             <Button
               size="lg"
-              className="h-14 px-8 rounded-xl text-base font-semibold bg-gradient-to-r from-[hsl(330_85%_60%)] to-[hsl(20_95%_60%)] text-primary-foreground hover:opacity-90 glow-sm group whitespace-nowrap border-0"
+              className="h-14 px-8 rounded-xl text-base font-semibold bg-gradient-to-r from-[hsl(42_85%_60%)] to-[hsl(36_75%_48%)] text-primary-foreground hover:opacity-90 glow-sm group whitespace-nowrap border-0"
               onClick={() => scrollTo("contact")}
             >
               Get Started
