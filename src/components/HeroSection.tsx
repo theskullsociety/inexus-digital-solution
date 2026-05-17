@@ -20,9 +20,9 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center overflow-hidden noise-bg"
     >
       {/* Background radial glows — pink/magenta to orange */}
-      <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[hsl(42_78%_55%/0.16)] blur-[160px] pointer-events-none" />
-      <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full bg-[hsl(38_70%_50%/0.10)] blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[20%] w-[450px] h-[450px] rounded-full bg-[hsl(48_90%_60%/0.06)] blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[hsl(43_72%_60%/0.10)] blur-[180px] pointer-events-none" />
+      <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full bg-[hsl(43_50%_50%/0.05)] blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[20%] w-[450px] h-[450px] rounded-full bg-[hsl(48_80%_65%/0.04)] blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 container mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-6">
         {/* Left: Text content */}
