@@ -122,7 +122,7 @@ export function HeroSection() {
                 )}
                 {isMobile && (
                   <div className="w-full h-full flex items-center justify-center">
-                    <div className="w-48 h-48 rounded-full bg-gradient-to-br from-[hsl(330_85%_55%/0.4)] via-[hsl(20_95%_60%/0.3)] to-[hsl(45_100%_55%/0.2)] blur-2xl" />
+                    <div className="w-48 h-48 rounded-full bg-gradient-to-br from-[hsl(42_85%_60%/0.4)] via-[hsl(38_75%_50%/0.3)] to-[hsl(48_90%_70%/0.2)] blur-2xl" />
                   </div>
                 )}
               </div>
