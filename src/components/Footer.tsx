@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="mb-3">
-              <img src={logoFull} alt="Digivyral — Ignite Your Growth" className="h-14 md:h-16 object-contain" />
+              <img src={logoFull} alt="Digivyral — Ignite Your Growth" className="h-20 md:h-24 object-contain" />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               India's #1 digital marketing & web development agency. We make brands go viral.
