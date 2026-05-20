@@ -52,7 +52,7 @@ export function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between h-20 md:h-24 px-6">
         <Link to="/" className="flex items-center">
-          <img src={logoFull} alt="Digivyral — Ignite Your Growth" className="h-14 md:h-16 object-contain" />
+          <img src={logoFull} alt="Digivyral — Ignite Your Growth" className="h-20 md:h-24 object-contain" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
