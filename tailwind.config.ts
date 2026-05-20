@@ -90,6 +90,14 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0) rotate(4deg)" },
+          "50%": { transform: "translateY(-10px) rotate(5deg)" },
+        },
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(0) rotate(-6deg)" },
+          "50%": { transform: "translateY(-15px) rotate(-4deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -97,6 +105,8 @@ export default {
         "fade-up": "fade-up 0.6s ease-out forwards",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         "shimmer": "shimmer 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "bounce-slow": "bounce-slow 5s ease-in-out infinite",
       },
     },
   },
