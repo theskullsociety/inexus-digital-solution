@@ -2,6 +2,11 @@ import { lazy, Suspense, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Link2 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
+import avatar4 from "@/assets/avatar-4.jpg";
+
 
 const HeroSphere = lazy(() => import("@/components/HeroSphere").then(m => ({ default: m.HeroSphere })));
 
@@ -118,10 +123,18 @@ export function HeroSection() {
 
               {/* Trust avatars row */}
               <div className="mt-4 flex items-center gap-4 text-sm text-foreground/50 px-2">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full border-2 border-background bg-primary/20" />
-                  <div className="w-8 h-8 rounded-full border-2 border-background bg-primary/30" />
-                  <div className="w-8 h-8 rounded-full border-2 border-background bg-primary/40" />
+                <div className="flex -space-x-3">
+                  {[avatar1, avatar2, avatar3, avatar4].map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt={`Happy client ${i + 1}`}
+                      loading="lazy"
+                      width={32}
+                      height={32}
+                      className="w-9 h-9 rounded-full border-2 border-background object-cover"
+                    />
+                  ))}
                 </div>
                 <span>Trusted by 500+ hyper-growth brands globally</span>
               </div>
