@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
 
 const testimonials = [
   {
@@ -7,20 +10,24 @@ const testimonials = [
     role: "CEO, TechStart",
     text: "Digivyral transformed our online presence completely. Our traffic increased by 300% in just 3 months.",
     rating: 5,
+    photo: avatar1,
   },
   {
     name: "Marcus Rodriguez",
     role: "Founder, StyleHub",
     text: "The best agency we've ever worked with. They don't just deliver — they over-deliver every single time.",
     rating: 5,
+    photo: avatar2,
   },
   {
     name: "Emily Watson",
     role: "CMO, GreenLeaf",
     text: "Their creative approach to our brand identity was nothing short of brilliant. Truly world-class work.",
     rating: 5,
+    photo: avatar3,
   },
 ];
+
 
 export function TestimonialsSection() {
   return (
@@ -60,9 +67,14 @@ export function TestimonialsSection() {
               <p className="text-foreground/75 leading-relaxed mb-6 text-sm">"{t.text}"</p>
 
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-sm font-bold text-primary font-display">
-                  {t.name.charAt(0)}
-                </div>
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  loading="lazy"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-full object-cover border border-primary/20"
+                />
                 <div>
                   <div className="font-semibold text-foreground text-sm">{t.name}</div>
                   <div className="text-muted-foreground text-xs">{t.role}</div>
