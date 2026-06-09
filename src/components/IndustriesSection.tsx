@@ -33,6 +33,7 @@ const industries = [
     testimonial: {
       text: "Digivyral completely transformed our patient acquisition. We went from struggling to fill appointments to having a 2-week waitlist within 3 months.",
       name: "Dr. Priya Sharma",
+      photo: photoMedical,
       role: "Director, HealthFirst Clinic",
       rating: 5,
     },
@@ -56,6 +57,7 @@ const industries = [
     testimonial: {
       text: "Our enrollments skyrocketed after partnering with Digivyral. Their funnel strategy was a game-changer for our coaching business.",
       name: "Rahul Mehta",
+      photo: photoEducation,
       role: "Founder, LearnPro Academy",
       rating: 5,
     },
@@ -79,6 +81,7 @@ const industries = [
     testimonial: {
       text: "Digivyral made our tours go viral. We're now fully booked for the next two seasons — something we never imagined possible.",
       name: "Ankit Verma",
+      photo: photoTravel,
       role: "CEO, WanderLux Travels",
       rating: 5,
     },
@@ -102,6 +105,7 @@ const industries = [
     testimonial: {
       text: "We sold out an entire tower in 4 months. Digivyral's lead gen strategy is absolutely world-class.",
       name: "Vikram Singh",
+      photo: photoRealestate,
       role: "MD, Skyline Properties",
       rating: 5,
     },
@@ -125,6 +129,7 @@ const industries = [
     testimonial: {
       text: "Digivyral helped us scale from ₹2L to ₹15L monthly revenue in just 5 months. Their ROAS is unmatched.",
       name: "Sneha Kapoor",
+      photo: photoEcommerce,
       role: "Founder, GlowNaturals",
       rating: 5,
     },
@@ -148,6 +153,7 @@ const industries = [
     testimonial: {
       text: "Our weekday tables are now fully booked. Digivyral's local marketing strategy is phenomenal.",
       name: "Chef Arjun Bhatia",
+      photo: photoRestaurant,
       role: "Owner, Spice Theory",
       rating: 5,
     },
@@ -171,6 +177,7 @@ const industries = [
     testimonial: {
       text: "We went from relying solely on referrals to getting 15+ qualified consultation requests weekly. Incredible ROI.",
       name: "Adv. Neha Gupta",
+      photo: photoLaw,
       role: "Partner, Gupta & Associates",
       rating: 5,
     },
@@ -194,6 +201,7 @@ const industries = [
     testimonial: {
       text: "Digivyral helped me turn my Instagram following into a real business. I now earn more from my brand than my 9-5 ever paid.",
       name: "Kavya Iyer",
+      photo: photoPersonal,
       role: "Lifestyle Creator",
       rating: 5,
     },
@@ -217,6 +225,7 @@ const industries = [
     testimonial: {
       text: "From struggling to get demos to having a pipeline full of qualified leads. Digivyral understands SaaS growth like no one else.",
       name: "Rohan Desai",
+      photo: photoStartup,
       role: "Co-Founder, CloudStack AI",
       rating: 5,
     },
