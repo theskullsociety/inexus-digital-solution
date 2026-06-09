@@ -3,6 +3,15 @@ import { motion, useInView, animate } from "framer-motion";
 import { Star, ArrowRight, CheckCircle2, TrendingUp, Users, Target, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
+import photoMedical from "@/assets/testimonial-medical.jpg";
+import photoEducation from "@/assets/testimonial-education.jpg";
+import photoTravel from "@/assets/testimonial-travel.jpg";
+import photoRealestate from "@/assets/testimonial-realestate.jpg";
+import photoEcommerce from "@/assets/testimonial-ecommerce.jpg";
+import photoRestaurant from "@/assets/testimonial-restaurant.jpg";
+import photoLaw from "@/assets/testimonial-law.jpg";
+import photoPersonal from "@/assets/testimonial-personal.jpg";
+import photoStartup from "@/assets/testimonial-startup.jpg";
 
 const industries = [
   {
