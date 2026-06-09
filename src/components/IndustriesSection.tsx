@@ -3,6 +3,15 @@ import { motion, useInView, animate } from "framer-motion";
 import { Star, ArrowRight, CheckCircle2, TrendingUp, Users, Target, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
+import photoMedical from "@/assets/testimonial-medical.jpg";
+import photoEducation from "@/assets/testimonial-education.jpg";
+import photoTravel from "@/assets/testimonial-travel.jpg";
+import photoRealestate from "@/assets/testimonial-realestate.jpg";
+import photoEcommerce from "@/assets/testimonial-ecommerce.jpg";
+import photoRestaurant from "@/assets/testimonial-restaurant.jpg";
+import photoLaw from "@/assets/testimonial-law.jpg";
+import photoPersonal from "@/assets/testimonial-personal.jpg";
+import photoStartup from "@/assets/testimonial-startup.jpg";
 
 const industries = [
   {
@@ -24,6 +33,7 @@ const industries = [
     testimonial: {
       text: "Digivyral completely transformed our patient acquisition. We went from struggling to fill appointments to having a 2-week waitlist within 3 months.",
       name: "Dr. Priya Sharma",
+      photo: photoMedical,
       role: "Director, HealthFirst Clinic",
       rating: 5,
     },
@@ -47,6 +57,7 @@ const industries = [
     testimonial: {
       text: "Our enrollments skyrocketed after partnering with Digivyral. Their funnel strategy was a game-changer for our coaching business.",
       name: "Rahul Mehta",
+      photo: photoEducation,
       role: "Founder, LearnPro Academy",
       rating: 5,
     },
@@ -70,6 +81,7 @@ const industries = [
     testimonial: {
       text: "Digivyral made our tours go viral. We're now fully booked for the next two seasons — something we never imagined possible.",
       name: "Ankit Verma",
+      photo: photoTravel,
       role: "CEO, WanderLux Travels",
       rating: 5,
     },
@@ -93,6 +105,7 @@ const industries = [
     testimonial: {
       text: "We sold out an entire tower in 4 months. Digivyral's lead gen strategy is absolutely world-class.",
       name: "Vikram Singh",
+      photo: photoRealestate,
       role: "MD, Skyline Properties",
       rating: 5,
     },
@@ -116,6 +129,7 @@ const industries = [
     testimonial: {
       text: "Digivyral helped us scale from ₹2L to ₹15L monthly revenue in just 5 months. Their ROAS is unmatched.",
       name: "Sneha Kapoor",
+      photo: photoEcommerce,
       role: "Founder, GlowNaturals",
       rating: 5,
     },
@@ -139,6 +153,7 @@ const industries = [
     testimonial: {
       text: "Our weekday tables are now fully booked. Digivyral's local marketing strategy is phenomenal.",
       name: "Chef Arjun Bhatia",
+      photo: photoRestaurant,
       role: "Owner, Spice Theory",
       rating: 5,
     },
@@ -162,6 +177,7 @@ const industries = [
     testimonial: {
       text: "We went from relying solely on referrals to getting 15+ qualified consultation requests weekly. Incredible ROI.",
       name: "Adv. Neha Gupta",
+      photo: photoLaw,
       role: "Partner, Gupta & Associates",
       rating: 5,
     },
@@ -185,6 +201,7 @@ const industries = [
     testimonial: {
       text: "Digivyral helped me turn my Instagram following into a real business. I now earn more from my brand than my 9-5 ever paid.",
       name: "Kavya Iyer",
+      photo: photoPersonal,
       role: "Lifestyle Creator",
       rating: 5,
     },
@@ -208,6 +225,7 @@ const industries = [
     testimonial: {
       text: "From struggling to get demos to having a pipeline full of qualified leads. Digivyral understands SaaS growth like no one else.",
       name: "Rohan Desai",
+      photo: photoStartup,
       role: "Co-Founder, CloudStack AI",
       rating: 5,
     },
@@ -431,9 +449,14 @@ export function IndustriesSection() {
                 </p>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <Users className="h-5 w-5 text-primary" />
-                  </div>
+                  <img
+                    src={current.testimonial.photo}
+                    alt={current.testimonial.name}
+                    loading="lazy"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 rounded-full object-cover border border-primary/20"
+                  />
                   <div>
                     <div className="font-semibold text-foreground">{current.testimonial.name}</div>
                     <div className="text-muted-foreground text-sm">{current.testimonial.role}</div>
