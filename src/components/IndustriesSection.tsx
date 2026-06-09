@@ -449,9 +449,14 @@ export function IndustriesSection() {
                 </p>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <Users className="h-5 w-5 text-primary" />
-                  </div>
+                  <img
+                    src={current.testimonial.photo}
+                    alt={current.testimonial.name}
+                    loading="lazy"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 rounded-full object-cover border border-primary/20"
+                  />
                   <div>
                     <div className="font-semibold text-foreground">{current.testimonial.name}</div>
                     <div className="text-muted-foreground text-sm">{current.testimonial.role}</div>
